@@ -5,4 +5,4 @@ sitemaps:
     origin: http://www.alessandrogiupponi.com
     lastmod: YYYY-MM-DD
     source: /query-index.json
-    destination: /sitemap-en.xml
+    destination: /sitemap.xml
