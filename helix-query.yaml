@@ -15,7 +15,4 @@ indices:
         value: match(attribute(el, "content"), "https:\/N/[^/]+(/.*)") 
       description:
         select: head › meta [name="description"] 
-        value: attribute(el, "content")!
-      robots:
-        select: head › meta[property="og: robots"]
-        value: attribute(el, "content" )
+        value: attribute(el, "content")
