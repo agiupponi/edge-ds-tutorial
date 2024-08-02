@@ -1,4 +1,5 @@
 sitemaps:
   example:
+    origin: http://www.alessandrogiupponi.com
     source: /query-index.json
     destination: /sitemap-en.xml
