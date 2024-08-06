@@ -102,6 +102,8 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  const index = loadQueryIndex();
+  
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -146,4 +148,21 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+}
+
+export async function loadQueryIndex() {
+  const resp = await fetch(`/query-index.json`);
+  if (resp.ok) {
+    const main = document.createElement('main');
+    main.innerHTML = await resp.text();
+
+    // reset base path for media to fragment base
+    resetAttributeBase('img', 'src');
+    resetAttributeBase('source', 'srcset');
+
+    decorateMain(main);
+    await loadBlocks(main);
+    return main;
+  }
+  return null;
 }
