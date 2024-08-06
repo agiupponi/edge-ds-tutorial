@@ -156,6 +156,9 @@ export async function loadQueryIndex() {
     .then((json) => {
       var articles = json.data.filter( element => element.type == "article")
       console.log(articles);
+      let years = articles.map(item => item.year).filter((value, index, self) =>
+          self.indexOf(value) === index);
+      console.log(years);
     });
   return resp;
 }
