@@ -1,23 +1,11 @@
 indices:
-  default:
+  articles:
     include:
-      - /**
-    target: /query-index.json
+      - /recessed-modular/**
+    target: /query-articles.json
     properties:
-      lastModified: 
-        select: none
-        value: parseTimestamp (headers ["last-modified"], "ddd, DD MMM YYYY hh: mm: ss GMT") 
       title:
         select: head › meta[property="og: title"] 
-        value: attribute(el, "content" )
-      image:
-        select: head › meta[property="og: image"]
-        value: match(attribute(el, "content"), "https:\/N/[^/]+(/.*)") 
-      description:
-        select: head › meta [name="description"] 
-        value: attribute(el, "content")
-      robots:
-        select: head › meta[property="og: robots"]
         value: attribute(el, "content" )
       year:
         select: head › meta[property="og: year"]
@@ -27,4 +15,21 @@ indices:
         value: attribute(el, "content" )
       type:
         select: head › meta[property="og: type"]
+        value: attribute(el, "content" )
+  default:
+    include:
+      - /**
+    target: /query-index.json
+    properties:
+      lastModified: 
+        select: none
+        value: parseTimestamp (headers ["last-modified"], "ddd, DD MMM YYYY hh: mm: ss GMT") 
+      image:
+        select: head › meta[property="og: image"]
+        value: match(attribute(el, "content"), "https:\/N/[^/]+(/.*)") 
+      description:
+        select: head › meta [name="description"] 
+        value: attribute(el, "content")
+      robots:
+        select: head › meta[property="og: robots"]
         value: attribute(el, "content" )
