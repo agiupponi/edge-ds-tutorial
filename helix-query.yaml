@@ -1,5 +1,5 @@
 indices:
-  default:
+  default: &default
     include:
       - /**
     target: /query-index.json
@@ -28,3 +28,9 @@ indices:
       type:
         select: head › meta[property="og: type"]
         value: attribute(el, "content" )
+
+  recessed-modular:
+    <<: *default
+    include:
+      - '/recessed-modular/**'
+    target: /recessed-modular/query-index.json
