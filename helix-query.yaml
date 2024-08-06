@@ -21,6 +21,9 @@ indices:
       - /**
     target: /query-index.json
     properties:
+      title:
+        select: head › meta[property="og: title"] 
+        value: attribute(el, "content" )
       lastModified: 
         select: none
         value: parseTimestamp (headers ["last-modified"], "ddd, DD MMM YYYY hh: mm: ss GMT") 
