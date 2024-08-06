@@ -25,3 +25,6 @@ indices:
       month:
         select: head › meta[property="og: month"]
         value: attribute(el, "content" )
+      type:
+        select: head › meta[property="og: type"]
+        value: attribute(el, "content" )
