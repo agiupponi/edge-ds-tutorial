@@ -154,5 +154,5 @@ export async function loadQueryIndex() {
   const resp = await fetch('/query-index.json')
     .then((response) => response.json())
     .then((json) => console.log(json.data));
-  return null;
+  return resp;
 }
