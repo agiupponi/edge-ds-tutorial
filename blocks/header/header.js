@@ -151,18 +151,8 @@ export default async function decorate(block) {
 }
 
 export async function loadQueryIndex() {
-  const resp = await fetch(`/query-index.json`);
-  if (resp.ok) {
-    const main = document.createElement('main');
-    main.innerHTML = await resp.text();
-
-    // reset base path for media to fragment base
-    resetAttributeBase('img', 'src');
-    resetAttributeBase('source', 'srcset');
-
-    decorateMain(main);
-    await loadBlocks(main);
-    return main;
-  }
+  const resp = await fetch('/query-index.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
   return null;
 }
