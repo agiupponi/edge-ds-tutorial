@@ -19,3 +19,12 @@ indices:
       robots:
         select: head › meta[property="og: robots"]
         value: attribute(el, "content" )
+      year:
+        select: head › meta[property="og: year"]
+        value: attribute(el, "content" )
+      month:
+        select: head › meta[property="og: month"]
+        value: attribute(el, "content" )
+      type:
+        select: head › meta[property="og: type"]
+        value: attribute(el, "content" )
