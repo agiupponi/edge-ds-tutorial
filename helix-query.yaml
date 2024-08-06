@@ -2,7 +2,7 @@ indices:
   articles:
     include:
       - /recessed-modular/**
-    target: /query-articles.json
+    target: /recessed-modular/query-articles.json
     properties:
       title:
         select: head › meta[property="og: title"] 
