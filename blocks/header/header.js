@@ -103,7 +103,7 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const index = loadQueryIndex();
-  
+
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -153,6 +153,9 @@ export default async function decorate(block) {
 export async function loadQueryIndex() {
   const resp = await fetch('/query-index.json')
     .then((response) => response.json())
-    .then((json) => console.log(json.data));
+    .then((json) => {
+      var articles = json.data.filter( element => element.type == "article")
+      console.log(articles);
+    });
   return resp;
 }
