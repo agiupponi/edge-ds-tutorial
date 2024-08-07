@@ -1,1 +1,15 @@
 indices:
+  default: &default
+    include:
+      - /**
+    target: /query-index.json
+    properties:
+      flash:
+        selectFirst: h1
+        value: innerHTML(el)
+  custom:
+    <<: *default
+    properties:
+      flash:
+        selectFirst: h1
+        value: innerHTML(el)
