@@ -1,30 +1,9 @@
 indices:
-  default:
+  mysite:
     include:
       - /**
     target: /query-index.json
     properties:
-      lastModified: 
-        select: none
-        value: parseTimestamp (headers ["last-modified"], "ddd, DD MMM YYYY hh: mm: ss GMT") 
-      title:
-        select: head › meta[property="og: title"] 
-        value: attribute(el, "content" )
-      image:
-        select: head › meta[property="og: image"]
-        value: match(attribute(el, "content"), "https:\/N/[^/]+(/.*)") 
-      description:
-        select: head › meta [name="description"] 
-        value: attribute(el, "content")
-      robots:
-        select: head › meta[property="og: robots"]
-        value: attribute(el, "content" )
-      year:
-        select: head › meta[property="og: year"]
-        value: attribute(el, "content" )
-      month:
-        select: head › meta[property="og: month"]
-        value: attribute(el, "content" )
-      type:
-        select: head › meta[property="og: type"]
-        value: attribute(el, "content" )
+      flash:
+        selectFirst: h1
+        value: innerHTML(el)
