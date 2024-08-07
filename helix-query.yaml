@@ -3,3 +3,6 @@ indices:
     include:
       - /**
     target: /query-index.json
+    title:
+      select: head > meta[property="og:title"]
+      value: attribute(el, 'content')
