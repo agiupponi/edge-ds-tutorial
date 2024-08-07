@@ -1,4 +1,8 @@
 indices:
+  ginetto:
+    include:
+      - /martinelli-ginetto/**
+    target: /ginetto-index.json
   default: &default
     include:
       - /**
